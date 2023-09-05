@@ -1,0 +1,33 @@
+# 'type' parameter includes multiple, ensemble, and cohort. 
+run:
+  type: "ensemble"
+  models:
+  - LR
+  - LRFS
+
+  
+# If the target dataset is not in BQ, the 'bq' section must be removed from the config file. 
+# If the 'bq' is not found, the system checks the db automatically. 
+bq:
+  credentials: "/Users/behzadn/.config/gcloud/application_default_credentials.json"
+  driverPath: "/Users/behzadn/SimbaJDBCDriverforGoogleBigQuery42_1.2.22.1026"
+  projectId: "som-nero-phi-boussard"
+  defaultDataset: "bn_carousel"
+db:
+  dbms: "postgresql"
+  server: "localhost"
+  port: 5742
+  user: "behzadn"
+  password: "1111"
+  driverPath: "path to driver"
+
+cdm:
+  target_database_schema: "`som-nero-phi-boussard.bn_carousel`"
+  cohort_table: "cohort"
+  target_cohort_id: 1
+  outcome_cohort_id: 2
+  vocabulary_database_schema: "`som-nero-phi-boussard.bn_carousel`"
+  cdm_database_schema: "`som-nero-phi-boussard.bn_carousel`"
+  cdm_database_name: "STARR-OMOP"
+
+
